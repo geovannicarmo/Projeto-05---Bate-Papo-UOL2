@@ -1,0 +1,102 @@
+
+.page{
+   width: 100%;
+    background-color: #E5E5E5;
+}
+
+
+
+.top{
+    position: fixed;
+    top: 0;
+    height:80px;
+    width: 100%;;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+ 
+}
+
+#logo{
+    width: 75px;
+    height: 53px;
+    margin-left: 22px;
+    margin-top: 16px;
+
+}
+
+#logo2{
+  font-size: 46px;
+    margin-right: 22px;
+    margin-top: 16px;
+
+}
+
+
+.bottom{
+
+    position: fixed;
+    bottom: 0;
+    height:80px;
+    width: 100%;;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.bottom > ion-icon{
+    font-size: 25px;
+    margin-top: 27px;
+    position: absolute;
+    right: 18px;
+}
+
+input{
+    width: 70%;
+    font-size: 16px;
+    border: 2px solid #FFFFFF;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 30px;
+    word-wrap: break-word;
+    
+}
+
+.messages{
+    padding-top: 106px;
+    padding-bottom: 106px;
+    word-wrap: break-word;
+    
+}
+
+.geral{
+   
+    width: 95%;
+  
+    display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: 15px 0;
+  word-wrap: break-word;
+    
+}
+
+.status1{
+    background-color: #DCDCDC;
+    
+}
+
+.message1{
+    background-color: #FFDEDE;
+
+}
+.private_message1{
+    background-color: #FFFFFF;
+}
+
+.geral p{
+    width: 95%;
+    word-wrap: break-word;
+}
