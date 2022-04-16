@@ -1,4 +1,5 @@
-
+let destinatario="Todos"
+let typeMessage="message"
 
 function receiveMessages(){
 
@@ -154,9 +155,9 @@ function receiveMessages(){
     
         {
             from: nickname.name,
-            to: "Todos",
+            to: destinatario,
             text: messageSent.value,
-            type: "message" 
+            type: typeMessage 
         }
     
         
@@ -180,12 +181,145 @@ function receiveMessages(){
         const statusCode = erro.response.status;
         window.location.reload()
     }
+
+  
+
+    function ParticipantesAtivos(){
+
     
+
+        let elemento=document.querySelector(".overlay")
+
+       
+        
+        elemento.classList.toggle("escondido");
+
+       let promise = axios.get('https://mock-api.driven.com.br/api/v6/uol/participants')
+
+       promise.then(Ativos);
+
+     
+
+        
+    }
+
+
+   function Ativos(nomes){
+    let elemento=document.querySelector(".overlay")
+
+    let arrayNomes=[]
+
+   
+
+    
+    for(let i=0; i<nomes.data.length; i++){
+
+        
+
+        arrayNomes[i] = 
+        `<div onclick="selecionaParticipante(this)" class="contato">
+        <ion-icon id="logo3" name="person-circle"></ion-icon> <p>${nomes.data[i]["name"]}</p><ion-icon class ="check escondido" name="chevron-down-circle-outline"></ion-icon>
+    </div>`
+
+   
+        
+     }
+
+
+    ell= `<div onclick="ParticipantesAtivos()" class="esquerda ">
+
+    </div>
+    <div class="direita">
+        <div class="contatos">
+            <h2>Escolha um contato para enviar mensagem:</h2>
+            <div onclick="selecionaParticipante(this)" class="contato">
+            <ion-icon id="logo3" name="people"></ion-icon> <p>Todos</p> <ion-icon class ="check escondido mostrar "name="chevron-down-circle-outline"></ion-icon>
+        </div>
+
+     ${arrayNomes}
+
+
+        </div>
+
+
+        <div class="contatos">
+            <h2>Escolha a visibilidade:</h2>
+
+            <div onclick="selecionatype(this)" class="contato tipop">
+                <ion-icon id="logo3" name="lock-open"></ion-icon> <p>Publico</p>
+                <ion-icon class ="check escondido mostrar "name="chevron-down-circle-outline"></ion-icon>
+            </div>
+
+            <div onclick="selecionatype(this)" class="contato tipop">
+                <ion-icon id="logo3" name="lock-closed"></ion-icon> <p>Reservadamente</p>
+                <ion-icon class ="check escondido  "name="chevron-down-circle-outline"></ion-icon>
+            </div>
+        </div>
+    </div>`
+
+   
+    
+
+  
+
+  
+
+    elemento.innerHTML=ell
+}
+
+
+function selecionaParticipante (participanteSelecionado){
+
+     destinatario= participanteSelecionado.querySelector("p").innerHTML
+ 
+
+    let mostraCheck = participanteSelecionado.querySelector(".check")
+
+
+    let marcado=document.querySelector(".contato .mostrar")
+
+    marcado.classList.remove("mostrar")
+
+    mostraCheck.classList.add("mostrar")
+
+}
+ 
+function selecionatype (tipoSelecionado){
+
+    
+
+    if("Reservadamente" === tipoSelecionado.querySelector("p").innerHTML){
+
+        typeMessage="private_message"
+    }
+
+    else{
+        typeMessage="message"
+    }
+
+    let mostraCheck = tipoSelecionado.querySelector(".check")
+
+
+    let marcado=document.querySelector(".tipop .mostrar")
+
+    marcado.classList.remove("mostrar")
+
+    mostraCheck.classList.add("mostrar")
+  
+
+
+}
+ 
+
+
+
     nome = ("donaltio")
     
     let nickname = {
         name: nome
     }
+
+   
     
     
     
