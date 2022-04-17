@@ -1,5 +1,9 @@
 let destinatario="Todos"
 let typeMessage="message"
+let nome;
+let nickname = {
+    name: nome
+}
 
 function receiveMessages(){
 
@@ -35,11 +39,10 @@ function receiveMessages(){
             if (message[i].type==="message"){
                 
             msg[i]= `<div class="geral message1"><p>
-            (${message[i].time})
-            ${message[i].from}
-            para  ${message[i].to}
-            : ${message[i].text} ${i} 
-            ${message[i].type}
+            <i>(${message[i].time})</i>
+            <b>${message[i].from}</b>
+            para  <b>${message[i].to}</b>:
+             ${message[i].text}
             
             </p>
             </div>`;
@@ -50,11 +53,10 @@ function receiveMessages(){
                else if (message[i].type==="private_message"){
                 
                     msg[i]= `<div class="geral private_message1"><p>
-                    (${message[i].time})
-                    ${message[i].from}
-                    para  ${message[i].to}
-                    : ${message[i].text} ${i} 
-                    ${message[i].type}
+                    <i>(${message[i].time})</i>
+                    <b>${message[i].from}</b>
+                    para  <b>${message[i].to}</b>: 
+            ${message[i].text} 
                     
                     </p>
                     </div>`;
@@ -63,11 +65,10 @@ function receiveMessages(){
                     else {
                 
                         msg[i]= `<div class="geral status1"><p>
-                        (${message[i].time})
-                        ${message[i].from}
-                        para  ${message[i].to}
-                        : ${message[i].text} ${i} 
-                        ${message[i].type}
+                        <i>(${message[i].time})</i>
+                        <b>${message[i].from}</b>
+                        para  <b>${message[i].to}</b>:
+                         ${message[i].text}
                         
                         </p>
                         </div>`;
@@ -147,7 +148,7 @@ function receiveMessages(){
     
     function send(){
     
-        let messageSent=document.querySelector("input")
+        let messageSent=document.querySelector(".digitarmsg")
     
         
        
@@ -182,9 +183,17 @@ function receiveMessages(){
         window.location.reload()
     }
 
-  
+    function vermensagens(){
 
+        let elemento=document.querySelector(".overlay")
+        elemento.classList.add("escondido");
+    }
+  
     function ParticipantesAtivos(){
+
+
+        destinatario="Todos"
+        typeMessage="message"
 
     
 
@@ -192,7 +201,7 @@ function receiveMessages(){
 
        
         
-        elemento.classList.toggle("escondido");
+        elemento.classList.remove("escondido");
 
        let promise = axios.get('https://mock-api.driven.com.br/api/v6/uol/participants')
 
@@ -214,19 +223,15 @@ function receiveMessages(){
     
     for(let i=0; i<nomes.data.length; i++){
 
-        
-
         arrayNomes[i] = 
         `<div onclick="selecionaParticipante(this)" class="contato">
         <ion-icon id="logo3" name="person-circle"></ion-icon> <p>${nomes.data[i]["name"]}</p><ion-icon class ="check escondido" name="chevron-down-circle-outline"></ion-icon>
     </div>`
-
-   
-        
+ 
      }
 
 
-    ell= `<div onclick="ParticipantesAtivos()" class="esquerda ">
+    ell= `<div onclick="vermensagens()" class="esquerda ">
 
     </div>
     <div class="direita">
@@ -309,18 +314,31 @@ function selecionatype (tipoSelecionado){
 
 
 }
- 
 
-
-
-    nome = ("donaltio")
-    
-    let nickname = {
-        name: nome
-    }
 
    
+    function confirmaNome(){
+        let nome1=document.querySelector(".digitanome")
+        nome=nome1.value
+        logar=document.querySelector(".login");
+
+        nickname = {
+            name: nome
+        }
+
+
+
+        logar.classList.add("escondido");
+
+        
+
+         
+           
+            logIn()
+
+    }
+
     
     
     
-    logIn()
+  

@@ -60,7 +60,8 @@
 input{
     width: 70%;
     font-size: 16px;
-    border: 2px solid #FFFFFF;
+    
+    border-style: none;
     background-position: 10px 10px; 
     background-repeat: no-repeat;
     padding: 12px 20px 12px 30px;
@@ -163,6 +164,20 @@ background-color:rgba(88,98,0,0.6);
     
   }
 
+  .overlayin {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    z-index: 1;
+   
+    justify-content: center;
+    align-items: center;
+    
+  }
+
   .mostrar {
     display: block;
   }
@@ -179,4 +194,35 @@ background-color:rgba(88,98,0,0.6);
       color: green;
       margin-left: 10px;
       
+  }
+
+  b{
+    font-weight: bolder;
+  }
+
+  i{
+    color: grey;
+  }
+
+  .login{
+      background-color: #FFDEDE;
+  }
+
+  .entrar{
+      display: block;
+      margin: 60px auto;
+      width: 120px;
+      height: 40px;
+    
+  }
+
+  .digitanome{
+      margin: 0 10%;
+  }
+
+  #img-login{
+      margin: 100px 30%;
+      width: 150px;
+      ma
+    
   }
